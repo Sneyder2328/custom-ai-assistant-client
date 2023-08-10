@@ -21,9 +21,9 @@ export default {
     },
     extend: {
       colors: {
-        textMain: "#000", // TODO: pending to add real value
-        textSecondary: "#000", // TODO: pending to add real value
-        textDisabled: "#000", // TODO: pending to add real value
+        textMain: "#212121",
+        textSecondary: "#737373",
+        textDisabled: "#9e9e9e",
         primaryMain: "#157AFE",
         primaryDark: "#116ADD",
         primaryLight: "#4797FF",
