@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DefaultApi } from "@custom-ai-assistant/sdk";
+import { DefaultApi } from "@Sneyder2328/custom-ai-assistant-sdk";
 
 const transport = axios.create();
 
