@@ -4,7 +4,6 @@ import {
   signInWithEmailAndPassword,
   UserCredential,
   User,
-  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { firebaseAuth } from "../lib/firebaseApp";
 import { useState } from "react";
@@ -27,11 +26,6 @@ export const useFirebaseAuth = ({
     console.error("handleLogin error=", error);
   };
 
-  const handleSignUpWithEmailAndPass = () => {
-    createUserWithEmailAndPassword(firebaseAuth, email, password)
-      .then(loginSuccess)
-      .catch(loginError);
-  };
   const handleLoginWithEmailAndPass = () => {
     signInWithEmailAndPassword(firebaseAuth, email, password)
       .then(loginSuccess)
@@ -45,7 +39,6 @@ export const useFirebaseAuth = ({
   };
 
   return {
-    handleSignUpWithEmailAndPass,
     handleLoginWithEmailAndPass,
     handleGoogleLogin,
     user,

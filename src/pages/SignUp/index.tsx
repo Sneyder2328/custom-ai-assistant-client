@@ -13,6 +13,8 @@ import GoogleIcon from "@mui/icons-material/Google";
 import { useState } from "react";
 import { useFirebaseAuth } from "../../hooks/useFirebaseAuth";
 import { AuthLayout } from "../../layouts/authLayout";
+import { api } from "../../api";
+import { useMutation } from "@tanstack/react-query";
 
 export default function SignUp() {
   const [fullName, setFullName] = useState("");
@@ -33,9 +35,13 @@ export default function SignUp() {
     event.preventDefault();
   };
 
-  const { handleSignUpWithEmailAndPass, handleGoogleLogin } = useFirebaseAuth({
+  const { handleGoogleLogin } = useFirebaseAuth({
     email,
     password,
+  });
+
+  const signupMutation = useMutation({
+    mutationFn: () => api.userSignup({ email, fullName, password }),
   });
 
   return (
@@ -112,7 +118,7 @@ export default function SignUp() {
               label="Confirm Password"
             />
           </FormControl>
-          <Button variant="contained" onClick={handleSignUpWithEmailAndPass}>
+          <Button variant="contained" onClick={() => signupMutation.mutate()}>
             Sign up
           </Button>
           <Button
